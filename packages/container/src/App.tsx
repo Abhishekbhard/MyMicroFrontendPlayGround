@@ -4,6 +4,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "../public/vite.svg";
 import "./App.css";
 const LoginConponent = lazy(async () => import("login/LoginPage"));
+const ProductListing = lazy(async () => import("ProductListing/ProductListing"));
 function App() {
   const [count, setCount] = useState(0);
 
@@ -14,6 +15,7 @@ function App() {
       <div>Container</div>
       <Routes>
         <Route path="/login" element={<LoginConponent />} />
+        <Route path="/productListing" element={<ProductListing/>} />
       </Routes>
     </>
   );
