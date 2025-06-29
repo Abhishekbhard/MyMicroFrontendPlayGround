@@ -8,6 +8,10 @@ module.exports = {
   devServer: {
     port: 8081,
     historyApiFallback: true,
+    hot: true,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
   },
   output: {
     publicPath: "http://localhost:8081/",

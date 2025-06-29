@@ -7,8 +7,11 @@ module.exports = {
   mode: "development",
   devServer: {
     historyApiFallback: true, // 👈 this is the fix
-
+    hot: true,
     port: 8080,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
   },
   output: {
     publicPath: "auto",
