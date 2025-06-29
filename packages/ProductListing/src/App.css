@@ -70,3 +70,7 @@ img.product-image {
   object-fit: cover;
   border-radius: 4px;
 }
+
+.selected{
+  text-decoration: line-through;
+}
