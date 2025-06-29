@@ -1,22 +1,27 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const { ModuleFederationPlugin } = require("webpack").container;
 const path = require("path");
 
 module.exports = {
   entry: "./src/index.ts",
   mode: "development",
   devServer: {
-    historyApiFallback: true, // 👈 this is the fix
-
-    port: 8080,
+    port: 8082,
+    historyApiFallback: true,
   },
   output: {
-    publicPath: "auto",
-    clean: true,
+    filename: 'bundle.js',
+    path: __dirname + '/dist',
   },
-
   module: {
     rules: [
+        {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: {
+              loader: 'babel-loader',
+            },
+          },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
         type: "asset/resource",
@@ -41,13 +46,18 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "container",
-      remotes: {
-        login: "login@http://localhost:8081/remoteEntry.js",
-        ProductListing: "ProductListing@http://localhost:8082/remoteEntry.js",
+      name: "ProductListing",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./ProductListing": "./src/App.tsx",
       },
-      shared: { react: { singleton: true }, "react-dom": { singleton: true } },
+      shared: ["react", "react-dom"],
     }),
-    new HtmlWebpackPlugin({ template: "./public/index.html" }),
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+    }),
   ],
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
 };
