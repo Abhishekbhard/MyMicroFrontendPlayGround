@@ -3,25 +3,25 @@ const { ModuleFederationPlugin } = require("webpack").container;
 const path = require("path");
 
 module.exports = {
-  entry: "./src/index.ts",
+  entry: "./src/main.tsx",
   mode: "development",
   devServer: {
     port: 8082,
     historyApiFallback: true,
   },
   output: {
-    filename: 'bundle.js',
-    path: __dirname + '/dist',
+    filename: "bundle.js",
+    path: __dirname + "/dist",
   },
   module: {
     rules: [
-        {
-            test: /\.js$/,
-            exclude: /node_modules/,
-            use: {
-              loader: 'babel-loader',
-            },
-          },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+        },
+      },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
         type: "asset/resource",
@@ -58,6 +58,6 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: [".js", ".jsx", ".ts", ".tsx"], // ✅ include these
   },
 };

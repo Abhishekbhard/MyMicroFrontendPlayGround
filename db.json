@@ -1,0 +1,54 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "ddd",
+      "image": "https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U",
+      "stock": "In stock",
+      "stockCount": 23,
+      "price": "€229,00",
+      "brand": "Eva Solo",
+      "color": "Natural"
+    },
+    {
+      "id": 2,
+      "name": "Steelio",
+      "image": "https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U",
+      "stock": "In stock",
+      "stockCount": 12,
+      "price": "€119,00",
+      "brand": "Eva Solo",
+      "color": "Natural"
+    },
+    {
+      "id": 3,
+      "name": "Parallel Clock Minimal",
+      "image": "https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U",
+      "stock": "In stock",
+      "stockCount": null,
+      "price": "€229,00",
+      "brand": "Joseph",
+      "color": "Black, Green"
+    },
+    {
+      "id": 4,
+      "name": "Watch This",
+      "image": "https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U",
+      "stock": "In stock",
+      "stockCount": null,
+      "price": "€229,00 – €239,00",
+      "brand": "Eva Solo",
+      "color": "Black and Natural"
+    },
+    {
+      "id": 5,
+      "name": "Puzzel Mask",
+      "image": "https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U",
+      "stock": "In stock",
+      "stockCount": 8,
+      "price": "€27,50",
+      "brand": "Joseph",
+      "color": "Black and Yellow"
+    }
+  ]
+}

@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
+import { useDispatch } from "react-redux";
+import { type AppDispatch } from "./store";
+import { fetchProducts } from "./features/products/productApi";
 
 // 1️⃣ Define Product Type
 interface Product {
@@ -76,12 +79,18 @@ const products: Product[] = [
 const ProductList: React.FC = () => {
   const [selectedRow, setSelectedRow] = useState<number[]>([]);
 
+  // Dispatch to fetch products
+  const dispatch: AppDispatch = useDispatch();
+  console.log(dispatch, "dispatch");
   const handleRowSelected = (id: number) => {
     //[...[],1]=[1]
     setSelectedRow((prev) =>
       prev.includes(id) ? prev.filter((rowId) => rowId !== id) : [...prev, id]
     );
   };
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
   const handleAllChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const isChecked = e.target.checked;
     if (isChecked) {
@@ -97,9 +106,7 @@ const ProductList: React.FC = () => {
         <thead>
           <tr>
             <th>
-              <input type="checkbox"
-              onChange={handleAllChange}
-              />
+              <input type="checkbox" onChange={handleAllChange} />
             </th>
             <th>Image</th>
             <th>Name</th>
@@ -114,7 +121,7 @@ const ProductList: React.FC = () => {
             <tr
               key={product.id}
               className={selectedRow.includes(product.id) ? "selected" : ""}
-              onClick={(e) => handleRowSelected(product.id)}
+              onClick={() => handleRowSelected(product.id)}
             >
               <td>
                 <input

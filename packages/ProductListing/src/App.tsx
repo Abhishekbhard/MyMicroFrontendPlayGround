@@ -1,18 +1,15 @@
 import React from "react";
 import "./App.css";
-import ProductList from "./productList.tsx";
+import ProductList from "./productList";
+import { Provider, useDispatch } from "react-redux";
+import store from "./store";
 
-
-
-// 2️⃣ Define Products Array
-
-
-// 3️⃣ Functional Component
 const App: React.FC = () => {
+  // console.log(dispatch, "dispatch");
   return (
-    <div className="container">
-     <ProductList/>
-    </div>
+    <Provider store={store}>
+      <ProductList />
+    </Provider>
   );
 };
 
